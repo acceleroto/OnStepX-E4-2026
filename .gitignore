@@ -11,3 +11,11 @@ esp32.svd
 src/plugins/*
 debug.svd
 z.*
+
+# Cursor IDE
+.cursor/
+.cursorrules
+.cursorignore
+
+# Internal docs
+Groucho-internal/
