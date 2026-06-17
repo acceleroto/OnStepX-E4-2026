@@ -1,6 +1,28 @@
 OnStepX Telescope Controller
 ===========================
 
+# This fork
+This fork tracks current OnStepX `main` but is configured as a FYSETC E4 v1.0 controller for a Losmandy G11 GEM with 0.9 deg/step stepper motors and a 3:1 pulley reduction.
+
+Compared with upstream `main`, this fork:
+* Enables the `FYSETC_E4` pinmap.
+* Configures RA and DEC as TMC2209 step/dir axes using the newer `TMCStepper` backend.
+* Sets the G11 drivetrain geometry to 38400 steps/degree and 38400 PEC steps/worm rotation.
+* Enables ESP32 WiFi access point mode and the built-in website plugin.
+* Enables BME280 weather sensing at I2C address `0x76`.
+* Enables a DS3231 RTC as the time/location source.
+* Adds two TMC2209 focusers on axes 4 and 5.
+* Adds two manual dew heater outputs on FYSETC E4 heater pins 2 and 4.
+* Keeps driver status polling disabled for RA/DEC because TMC readback currently reports comms faults on this E4 setup.
+
+Compared with upstream `E4`, this fork:
+* Uses current OnStepX `main` as the base instead of the older E4 branch release.
+* Treats the E4 branch as a hardware reference, not as the final software authority.
+* Uses `DRIVER_TMC_STEPPER` for the FYSETC E4 TMC UART drivers instead of the legacy `TMC2209.h` driver path.
+* Keeps the current mainline FYSETC E4 UART and limit pin defaults rather than carrying over the old `SERIAL_TMC_RX 35` and `LIMIT_SENSE_PIN 34` overrides.
+* Includes the current website plugin source in this fork so the onboard ESP32 serves the web interface directly.
+* Documents the E4/G11 port notes in `docs/e4-main-port-notes.md`.
+
 # What is OnStepX?
 OnStepX is the advanced version of the OnStep computerized telescope controller with support for interfacing with/controlling a variety of motor drivers (and so motors) including Step/Dir, ODrive, and Servo (a combination of encoder and DC motor or Stepper motor) types.
 

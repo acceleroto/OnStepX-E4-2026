@@ -34,5 +34,12 @@
 // Warning --->                           //              ***     OR TWO THEN SET THIS OPTION TO OFF AND UPLOAD AGAIN.        ***
                                           //              ***     LEAVING THIS OPTION ENABLED CAN CAUSE EXCESSIVE NV          ***
                                           //              ***     WEAR AND DAMAGE THE MICROCONTROLLER NV SUBSYSTEM !!!        ***
+// One-time runtime-settings reset procedure:
+// 1. Set NV_WIPE ON.
+// 2. Upload firmware.
+// 3. Wait 1-2 minutes.
+// 4. Set NV_WIPE OFF.
+// 5. Upload firmware again.
+// Never leave NV_WIPE ON permanently.
 
 // ---------------------------------------------------------------------------------------------------------------------------------

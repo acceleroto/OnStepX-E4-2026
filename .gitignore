@@ -1,4 +1,5 @@
 .vscode/settings.json
+.DS_Store
 *.json
 __vm/*
 *.vcxproj*
@@ -9,6 +10,9 @@ Release/*
 debug.cfg
 esp32.svd
 src/plugins/*
+!src/plugins/Plugins.config.h
+!src/plugins/website/
+!src/plugins/website/**
 debug.svd
 z.*
 
